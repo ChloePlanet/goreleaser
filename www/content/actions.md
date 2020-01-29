@@ -70,6 +70,16 @@ Or with a condition on GoReleaser step:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 ```
 
+If you want to push docker image to registry(like Docker Hub), add docker login step before release:
+
+```yaml
+      - name: Login to Docker Hub
+        uses: azure/docker-login@v1
+        with:
+          username: ${{ secrets.DOCKER_USERNAME }}
+          password: ${{ secrets.DOCKER_PASSWORD }}
+```
+
 > For detailed instructions please follow GitHub Actions [workflow syntax][syntax].
 
 ## Customizing
